@@ -1,0 +1,39 @@
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="{{ url_for('static', filename='css/base.css')}}" rel="stylesheet">
+
+        <title>에너자이조 팀 소개</title>
+
+    </head>
+
+    <body>
+        <div class="left_bar">
+            <div class="main_title">
+                <h1>로고자리</h1>
+            </div>
+            <div class="login">
+                {% block login %}{% endblock %}
+            </div>
+            <div class="category">
+                {% block category_button %}{% endblock %}
+            </div>
+            <div class="left_image">
+                {% block left_image %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="right_bar">
+            <div class="contents">
+                {% block contents %}{% endblock %}
+            </div>
+        </div>
+
+    </body>
+
+</html>
