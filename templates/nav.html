@@ -1,30 +1,37 @@
-<div class="left_bar">
+
+<link href="{{ url_for('static', filename='css/nav.css')}}" rel="stylesheet">
+
+<div class="container">
     <div class="main_title">
         <h1>로고자리</h1>
     </div>
-    <div class="login">
-        {% block login %}
-            <div>로그인</div>
-        {% endblock %}
-    </div>
-    <div class="category">
-        {% block category_button %}
-            <button>카테고리1</button>
-            <button>카테고리2</button>
-            <button>카테고리3</button>
-            <button>카테고리4</button>
-            <button>카테고리4</button>
-        {% endblock %}
-    </div>
-    <div class="left_image">
-        {% block left_image %}
-            <div>사진</div>
-        {% endblock %}
-    </div>
-</div>
 
-<div class="right_bar">
-    <div class="contents">
-        {% block contents %}{% endblock %}
+    <div class="left_bar">
+        <div class="login">
+            {% block login %}
+                <button>login</button>
+            {% endblock %}
+        </div>
+        <div class="category">
+            {% block category_button %}
+                <button>카테고리1</button>
+                <button>카테고리2</button>
+                <button>카테고리3</button>
+                <button>카테고리4</button>
+                <button>카테고리4</button>
+            {% endblock %}
+        </div>
+        <div class="left_image">
+            {% block left_image %}
+                <div>사진</div>
+            {% endblock %}
+        </div>
     </div>
+
+    <div class="right_bar">
+        <div class="contents">
+            {% block contents %}{% endblock %}
+        </div>
+    </div>
+
 </div>

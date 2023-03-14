@@ -13,7 +13,7 @@ def home():
 
 
 # @app.route('/createUserData', methods=["POST"])
-# def creat_user():
+# def create_user():
 #     id_receive = request.form['id_give']
 #     pw_receive = request.form['pw_give']
 
