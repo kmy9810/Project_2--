@@ -11,6 +11,9 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/join')#회원가입 팝업
+def join():
+    return render_template('join.html')
 
 # @app.route('/createUserData', methods=["POST"])
 # def create_user():
