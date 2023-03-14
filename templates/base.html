@@ -18,11 +18,15 @@
         <link href="{{ url_for('static', filename='css/nav.css')}}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/index.css')}}" rel="stylesheet">
         <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+
+        <title>에너자이조 팀 소개</title>
+
     </head>
 
-    <title>에너자이조 팀 소개</title>
 
-</head>
+
+    
+
 <body>
     {% include "nav.html" %}
     {% block contents %}{% endblock %}
