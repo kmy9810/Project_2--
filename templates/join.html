@@ -1,5 +1,4 @@
-
-<link href="{{ url_for('static', filename='css/join.css')}}" rel="stylesheet">
+<script src="{{ url_for('static',filename='js/nav.js') }}"></script>
 
 <div class="join">
         <div class="mybox">
@@ -13,7 +12,7 @@
                 <input type="password" class="form-control" id="pw" placeholder="비밀번호를 입력하세요">
                 <div class="modal_button">
                     <button onclick="self.close()" >돌아가기</button>
-                    <button onclick="" >가입하기</button>
+                    <button onclick="join(${id}, ${pw})" >가입하기</button>
                 </div>
             </div>    
         </div>
