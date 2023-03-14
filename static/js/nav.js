@@ -19,10 +19,10 @@ function login() {
         }
     }
 
-    function join(id2, pw2) {
-        let id = id2
-        let pw = pw2
-        console.log(id2)
+    function join() {
+        let id = window.document.getElementById("id").value
+        let pw = window.document.getElementById("pw").value
+        console.log(id)
         if (id =='' || pw==''){
             alert("아이디와 비밀번호를 모두 입력해주세요")
         }else{

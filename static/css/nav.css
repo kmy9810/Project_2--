@@ -15,6 +15,8 @@
     align-items: center;
     justify-content: center;
     padding-top: 50px;
+
+    margin-top: 10px;
 }
 
 .login {
@@ -133,7 +135,19 @@
     border-bottom: 1px dashed black;
 }
 
+/* fr */
+/* .container {
+display: grid;
+grid-template-columns: 200px 200px 1fr 1fr;
+grid-template-rows: 150px 50px 250px 200px 50px;
+gap: 10px 10px;
+}
+.header{
+background-color: blanchedalmond;
+grid-column: 1/5;
+grid-row: 1;
 
+} */
 
 .modal_login {
     display: inline-block;
