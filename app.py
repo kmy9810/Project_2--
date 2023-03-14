@@ -33,6 +33,29 @@ def create_user():
         db.Users.insert_one(doc)
     return jsonify({ 'result': 'success', 'msg': '가입 완료!'})
 
+@app.route('/comment/<a>', methods=["POST"])
+def save_comment(a):
+    user = a
+    name_receive = request.form['name_give']
+    comment_receive = request.form['comment_give']
+    
+    doc = {
+        'id' : user,
+        'name' : name_receive,
+        'comment' : comment_receive,
+        'date' : datetime.datetime.now(),
+    }
+    db.commentbox.insert_one(doc)
+    
+    return jsonify({ 'result': 'success', 'msg': '저장완료'})
+
+@app.route('/comment/<a>', methods=["GET"])
+def show_comment(a):
+    user = a
+    all_comments = list(db.commentbox.find({'id':user},{'_id':False}))[::-1]
+    
+    return jsonify({'result':all_comments})
+
 # @app.route('/login', methods=["POST"])
 # def login():
 #     id_receive = request.form['id_give']
