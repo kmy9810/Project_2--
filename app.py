@@ -68,6 +68,7 @@ def show_comment(a):
 def show_member(member):
     user = member
     contents = list(db.Users.find({'name':user},{'_id':False}))[::-1]
+
     
     return jsonify({'result':contents, 'msg': '연결완료'})
 
