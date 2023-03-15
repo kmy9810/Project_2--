@@ -10,29 +10,57 @@
 {% block contents %}
     <div class="right_bar">
         <div class="contents">
-                <div class="image">
-                    <img class="Ener" src="https://pbs.twimg.com/profile_images/1081070799358849024/4g67jhaR_400x400.jpg">
-        
-                </div>
-                <div class="teamname">
-                    <h1> 에너자이조 </h1>
-                </div>
+            <div class="image">
+                <img
+                    class="Ener"
+                    src="https://pbs.twimg.com/profile_images/1081070799358849024/4g67jhaR_400x400.jpg">
 
-                <div id="text_Box" class="teaminfo">
-                    <h4> 팀원설명 </h4>
-                </div>
-            
+            </div>
+            <div class="teamname">
+                <h1>
+                    에너자이조
+                </h1>
+            </div>
+
+            <div id="text_Box" class="teaminfo">
+                <h4>
+                    팀원설명
+                </h4>
+            </div>
+
             <div class="comment">
-                <input class="comment_name" id="x" type="text" placeholder="이름" style="width: 100px;">
-                <input class="comment_text" id="reply" type="text" placeholder="댓글 달기" 
+                <input
+                    class="comment_name"
+                    id="x"
+                    type="text"
+                    placeholder="이름"
+                    style="width: 100px;">
+                <input
+                    class="comment_text"
+                    id="reply"
+                    type="text"
+                    placeholder="댓글 달기"
                     style="width: 320px;">
                 <button onclick="submit()" type="button">등록</button>
             </div>
-        </div>
-        <div>
-            <tbody id="comments"></tbody>
+
+            <button onclick="open_box()">댓글열기</button>
+            <div class="comment_box" id="comment_box">
+                <div class="my_comment">
+                    <input class="form-control" id="name" type="text" placeholder="닉네임">
+                </div>
+                <div class="my_comment">
+                    <input class="form-control" id="comment" type="text" placeholder="댓글 작성">
+                    <button onclick="save_comment()" type="button">저장</button>
+                </div>
+                <div id="all_comments"></div>
+            </div>
 
         </div>
-
     </div>
+    <div>
+        <tbody id="comments"></tbody>
+    </div>
+
+</div>
 {% endblock %}
