@@ -89,28 +89,6 @@ def submit():
     return jsonify({'result': 'success', 'msg': '저장완료'})
 
 
-# @app.route('/login', methods=["POST"])
-# def login():
-#     id_receive = request.form['id_give']
-#     pw_receive = request.form['pw_give']
-#     user = db.Users.find_one({'id': id_receive})
-#     print(user)
-#     return jsonify({'result': 'success', 'msg': '연결 완료!'})
-
-
-    # if id_receive == current_id['id'] and current == True:
-    #         session['id_give'] = request.form['id_give']   #현정
-    #         session['mbti'] = mbti['mbti']
-    #         return redirect(url_for('index'))
-    # else:
-    return jsonify({'msg': '아이디 또는 비밀번호를 확인해 주세요'})
-
-# @app.route('/login')
-# def index():
-#     if 'id_give' in session:  # session안에 id_give가 있으면 로그인
-#         return jsonify({'msg': '어서오세요 %s 님^ㅇ^' %escape(session['id_give'])})
-#     return render_template('base.html') #세션 보내버리기
-
 
 
 if __name__ == '__main__':
