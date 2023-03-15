@@ -96,6 +96,59 @@ def show_member(member):
 #     return render_template('base.html') #세션 보내버리기
 
 
+# 박지홍
+@app.route('/detail')  # 메인페이지
+def detail():
+    return render_template('insertTest.html')
+
+
+@app.route('/getlist')
+def getlist():
+    val = request.values
+    cmp = val.get('name')
+    namelist = list(db.test1.find({'name': cmp}, {'_id': False}))
+    return namelist
+
+
+@app.route("/create", methods=['POST'])
+def create():
+    name = request.form['name_give']
+    img = request.form['img_give']
+    comment = request.form['comment_give']
+    hobby = request.form['hobby_give']
+    info_1 = request.form['info_1_give']
+    info_2 = request.form['info_2_give']
+    info_3 = request.form['info_3_give']
+    info_4 = request.form['info_4_give']
+    doc = {
+        'name': name,
+        'img': img,
+        'comment': comment,
+        'hobby': hobby,
+        'info_1': info_1,
+        'info_2': info_2,
+        'info_3': info_3,
+        'info_4': info_4
+    }
+    namelist = list(db.test1.find({'name': name}, {'_id': False}))
+    if not len(namelist):
+        db.test1.insert_one(doc)
+
+    else:
+        db.test1.update_one({'name': name}, {"$set": doc})
+    return jsonify({'result': 'success', 'msg': '연결 완료!'})
+
+
+@app.route("/file_upload", methods=['POST'])
+def file_upload():
+    if request.method == 'POST':
+
+        f = request.files['file']
+        print("files? : ", request.files)
+        f.save('./static/img/' + secure_filename(f.filename))
+        return jsonify({'result': 'success', 'msg': '저장 완료!'})
+    else:
+        return jsonify({'result': 'fail', 'msg': '저장 실패!'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=8000, debug=True)
