@@ -1,0 +1,54 @@
+<script src="{{ url_for('static',filename='js/nav.js') }}"></script>
+<script src="{{ url_for('static',filename='js/park.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"/>
+<script>
+    /*
+        testId에 이페이지가 열리전에 가지고있는 name 값을 받아와서 전달해주면 
+        해당 데이터가 있으면 수정데이터로 없으면 생성데이터로 판단.
+    */
+    let testId = '가미'
+  window.onload = function () {
+    let data = getIdData(testId)
+    if(data == 0){
+        console.log("OK")
+    }
+    else{
+        setData(data)
+        console.log("NOt")
+    }
+  }
+</script>
+
+<div class="right_bar">
+    <div class="contents">
+        <button onclick="getIdData('1');">Get Data 테스트</button>
+    </div>
+        <div class="contaier-sm">
+            <label for="name" class="form-label">이름</label>
+            <input type="text" class="form-control" id="name" placeholder="이름"><br>
+            <label for="img" class="form-label">사진</label>
+            <input type = "file" name = "file" id="file" onchange="test1()"/>
+            <div><img src="" id="img_path"/></div>
+            <label for="comment" class="form-label">코멘트</label>
+            <input type="text" class="form-control" id="comment" placeholder="comment">
+            <label for="hobby" class="form-label">취미</label>
+            <input type="text" class="form-control" id="hobby" placeholder="Hobby"><br>
+            <label for="info_1" class="form-label">info_1</label>
+            <input type="text" class="form-control" id="info_1" placeholder="info_1">
+            <label for="info_2" class="form-label">info_2</label>
+            <input type="text" class="form-control" id="info_2" placeholder="info_2">
+            <label for="info_3" class="form-label">info_3</label>
+            <input type="text" class="form-control" id="info_3" placeholder="info_3">
+            <label for="info_4" class="form-label">info_4</label>
+            <input type="text" class="form-control" id="info_4" placeholder="info_4">
+            <div class="modal_button">
+                <button onclick="self.close()" >돌아가기</button>
+                <button onclick="postData();" >데이터보내기</button>
+            </div>
+        </div>    
+    </div>

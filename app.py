@@ -1,6 +1,7 @@
 import datetime # 작성 시간 기록을 위한 패키지
 from pymongo import MongoClient
 from flask import Flask, render_template, request, jsonify, app, session, redirect, url_for, escape
+from werkzeug.utils import secure_filename
 import bcrypt as bc # 암호화 패키지
 client = MongoClient("mongodb+srv://sparta:test@cluster0.280f8z1.mongodb.net/?retryWrites=true&w=majority")
 db = client.dbsparta
@@ -90,6 +91,63 @@ def submit():
 
 
 
+@app.route('/member')
+def member():
+    return render_template('member.html')
+
+# 박지홍
+@app.route('/detail')  # 메인페이지
+def detail():
+    return render_template('insertTest.html')
+
+
+@app.route('/getlist')
+def getlist():
+    val = request.values
+    cmp = val.get('name')
+    namelist = list(db.Users.find({'name': cmp}, {'_id': False}))
+    return namelist
+
+
+@app.route("/create", methods=['POST'])
+def create():
+    name = request.form['name_give']
+    img = request.form['img_give']
+    comment = request.form['comment_give']
+    hobby = request.form['hobby_give']
+    info_1 = request.form['info_1_give']
+    info_2 = request.form['info_2_give']
+    info_3 = request.form['info_3_give']
+    info_4 = request.form['info_4_give']
+    doc = {
+        'name': name,
+        'img': img,
+        'comment': comment,
+        'hobby': hobby,
+        'info_1': info_1,
+        'info_2': info_2,
+        'info_3': info_3,
+        'info_4': info_4
+    }
+    namelist = list(db.Users.find({'name': name}, {'_id': False}))
+    if not len(namelist):
+        db.Users.insert_one(doc)
+
+    else:
+        db.Users.update_one({'name': name}, {"$set": doc})
+    return jsonify({'result': 'success', 'msg': '연결 완료!'})
+
+
+@app.route("/file_upload", methods=['POST'])
+def file_upload():
+    if request.method == 'POST':
+
+        f = request.files['file']
+        print("files? : ", request.files)
+        f.save('./static/img/' + secure_filename(f.filename))
+        return jsonify({'result': 'success', 'msg': '저장 완료!'})
+    else:
+        return jsonify({'result': 'fail', 'msg': '저장 실패!'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=8000, debug=True)
