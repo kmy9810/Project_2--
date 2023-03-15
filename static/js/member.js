@@ -6,7 +6,8 @@ var state = [0, 0, 0] // 각 입력 박스들의 열림/닫힘 상태
 
 function save_comment() {
         let name = $('#name').val()
-        let comment = $('#comment').val()
+    let comment = $('#comment').val()
+        console.log("name : ", comment)
         let a = $('#me').text()
         if (comment.trim() =='' || name.trim()==''){
             alert("내용과 작성자이름을 입력해주세요")

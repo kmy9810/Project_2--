@@ -3,7 +3,8 @@ from pymongo import MongoClient
 from flask import Flask, render_template, request, jsonify, app, session, redirect, url_for, escape
 from werkzeug.utils import secure_filename
 import bcrypt as bc # 암호화 패키지
-client = MongoClient('mongodb+srv://sparta:test@cluster0.o2mnh48.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient("mongodb+srv://sparta:test@cluster0.280f8z1.mongodb.net/?retryWrites=true&w=majority")
+#client = MongoClient('mongodb+srv://sparta:test@cluster0.o2mnh48.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbsparta
 
 app = Flask(__name__)
@@ -112,12 +113,11 @@ def submit():
 #         return jsonify({'msg': '어서오세요 %s 님^ㅇ^' %escape(session['id_give'])})
 #     return render_template('base.html') #세션 보내버리기
 
-
-@app.route('/member')
-def member():
+# 박지홍
+@app.route('/member/<name>')
+def member(name):
     return render_template('member.html')
 
-# 박지홍
 @app.route('/detail')  # 메인페이지
 def detail():
     return render_template('insertTest.html')
@@ -136,7 +136,6 @@ def getlist():
 def create():
     name = request.form['name_give']
     img = request.form['img_give']
-    comment = request.form['comment_give']
     hobby = request.form['hobby_give']
     info_1 = request.form['info_1_give']
     info_2 = request.form['info_2_give']
@@ -145,7 +144,6 @@ def create():
     doc = {
         'name': name,
         'img': img,
-        'comment': comment,
         'hobby': hobby,
         'info_1': info_1,
         'info_2': info_2,

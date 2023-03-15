@@ -6,10 +6,12 @@
     crossorigin="anonymous"></script>
 <script>
     let userData
+    
     $(document).ready(function () {
-        userData = getIdData('박지홍')
-        console.log(userData)
-
+        let url = decodeURI(location.pathname.split('/')[2])
+        let queryString = location.search
+        userData = getIdData(url)
+        
         let html_temp = datauppand(userData)
         $('#testData').append(html_temp)
 
@@ -41,5 +43,6 @@
                 </div>
             </div>
         </div>
+        <button onclick="openPage('/detail', 'test', 500, 600)" type="button">상세정보</button>
     </div>
 {% endblock %}
