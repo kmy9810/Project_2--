@@ -17,17 +17,18 @@
                 <div class="teamname">
                     <h1> 에너자이조 </h1>
                 </div>
-            <div class="teaminfo">
-                <h4> 팀원설명 </h4>
-            </div>
+
+                <div id="text_Box" class="teaminfo">
+                    <h4> 팀원설명 </h4>
+                </div>
+            
             <div class="comment">
-                <input class="comment_text" type="text" placeholder="댓글 달기">
-                <button class=""></button>
+                <input class="comment_name" id="x" type="text" placeholder="이름" style="width: 100px;">
+                <input class="comment_text" id="reply" type="text" placeholder="댓글 달기" 
+                    style="width: 320px;">
+                <button onclick="submit()" type="button">등록</button>
             </div>
-            <input class="comment_text" id="reply" type="text" placeholder="댓글 달기">
-            <button onclick="submit()" type="button">등록</button>
         </div>
-        <button onclick="openPage('/detail', 'test', 500, 600)" type="button">등록</button>
         <div>
             <tbody id="comments"></tbody>
 

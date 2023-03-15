@@ -1,9 +1,18 @@
+.contents {
+    height: 90%;
+}
+
+.comment {
+    margin-top: 20px;
+
+}
+
 .image {
     width: 300px;
     height: 350px;
     border-radius: 70%;
     overflow: hidden;
-    margin: 30px 0 0 50px;
+    margin: 0px 0px 10px 0px;
     float: left;
 }
 

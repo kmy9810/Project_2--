@@ -5,35 +5,12 @@
         <img src="{{url_for('static', filename='img/logo.png')}}">
     </div>
     <div class="left_bar">
-        <div class="login">
-            <button id="btn-modal" class="open_modal" style='cursor:pointer'>로그인</button>
-            <div class="Modal">
-                <form action="" method="">
-                    <fieldset class="ModalContent">
-                        <legend>
-                            <로그인>
-                        </legend>
-                        <div class="modal_login">
-                            <label for="id" class="form-label">아이디</label>
-                            <input type="text" class="form-control" id="id" placeholder="아이디를 입력하세요">
-                            <label for="pw" class="form-label">비밀번호</label>
-                            <input type="password" class="form-control" id="pw" placeholder="비밀번호를 입력하세요">
-                            <div class="modal_button">
-                                <button onclick="close_modal()" >돌아가기</button>
-                                <button onclick="login()" >로그인</button>
-                            </div>
-                            <button onclick="window.open('join','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">회원가입</button>
-                        </div> 
-                    </fieldset>
-                </form>
-            </div>
-        </div>
         <div class="category">
-                <button>팀소개</button>
-                <button onclick="member(this);" value="김미영">김미영</button>
-                <button onclick="member(this);" value="박지홍">박지홍</button>
-                <button onclick="member(this);" value="송지명">송지명</button>
-                <button onclick="member(this);" value="이상민">이상민</button>
+                <button onclick="location.href='/'">팀소개</button>
+                <button onclick=" detail_get(this);" value="김미영">김미영</button>
+                <button onclick="detail_get(this);" value="박지홍">박지홍</button>
+                <button onclick="detail_get(this);" value="송지명">송지명</button>
+                <button onclick="detail_get(this);" value="이상민">이상민</button>
         </div>
         {% block left_image %}
             <div class="left_image">
