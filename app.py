@@ -73,6 +73,22 @@ def show_member(member):
     return jsonify({'result':contents, 'msg': '연결완료'})
 
 
+@app.route('/reply', methods=["POST"])
+def submit():
+    name_receive = request.form['name_give']
+    reply_receive = request.form['reply_give']
+    
+    print(name_receive)
+
+    doc = {
+        'name': name_receive,
+        'reply': reply_receive
+    }
+    db.replys.insert_one(doc)
+
+    return jsonify({'result': 'success', 'msg': '저장완료'})
+
+
 # @app.route('/login', methods=["POST"])
 # def login():
 #     id_receive = request.form['id_give']

@@ -45,6 +45,7 @@ function login() {
 
 
 function member(a) {
+    $('#test').empty()
     let member = $(a).val();
     console.log(member)
 
@@ -53,10 +54,25 @@ function member(a) {
         url: "/userData/"+member,
         data: {},
         success: function (response) {
+
             alert(response["msg"])
-            console.log(response['result'])
+
+            let rows = response['result']
+            let intro = rows[0]['intro']
+            let name = rows[0]['name']
+            let hobby = rows[0]['hobby']
+            let info_1 = rows[0]['info_1']
+            let info_2 = rows[0]['info_2']
+            let info_3 = rows[0]['info_3']
+            let info_4 = rows[0]['info_4']
+
+            let temp_html = `<h2>이름 : ${name} 취미 : ${hobby} info:${info_1} ${info_2} ${info_3} ${info_4}</h2>`
+
+            $('#test').append(temp_html)
         }
     });
 
 }
-    
+
+
+
