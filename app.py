@@ -1,6 +1,7 @@
 import datetime # 작성 시간 기록을 위한 패키지
 from pymongo import MongoClient
 from flask import Flask, render_template, request, jsonify, app, session, redirect, url_for, escape
+from werkzeug.utils import secure_filename
 import bcrypt as bc # 암호화 패키지
 client = MongoClient("mongodb+srv://sparta:test@cluster0.280f8z1.mongodb.net/?retryWrites=true&w=majority")
 db = client.dbsparta
@@ -126,7 +127,7 @@ def detail():
 def getlist():
     val = request.values
     cmp = val.get('name')
-    namelist = list(db.test1.find({'name': cmp}, {'_id': False}))
+    namelist = list(db.Users.find({'name': cmp}, {'_id': False}))
     return namelist
 
 
@@ -150,12 +151,12 @@ def create():
         'info_3': info_3,
         'info_4': info_4
     }
-    namelist = list(db.test1.find({'name': name}, {'_id': False}))
+    namelist = list(db.Users.find({'name': name}, {'_id': False}))
     if not len(namelist):
-        db.test1.insert_one(doc)
+        db.Users.insert_one(doc)
 
     else:
-        db.test1.update_one({'name': name}, {"$set": doc})
+        db.Users.update_one({'name': name}, {"$set": doc})
     return jsonify({'result': 'success', 'msg': '연결 완료!'})
 
 

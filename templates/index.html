@@ -5,6 +5,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
+{% extends 'base.html' %}
 
 {% block contents %}
     <div class="right_bar">
@@ -26,6 +27,7 @@
             <input class="comment_text" id="reply" type="text" placeholder="댓글 달기">
             <button onclick="submit()" type="button">등록</button>
         </div>
+        <button onclick="openPage('/detail', 'test', 500, 600)" type="button">등록</button>
         <div>
             <tbody id="comments"></tbody>
 

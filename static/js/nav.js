@@ -57,6 +57,7 @@ function member(a) {
 
             alert(response["msg"])
             console.log(response['result'])
+            window.location.href = "/member"
         }
     });
 
