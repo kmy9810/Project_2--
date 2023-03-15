@@ -42,3 +42,21 @@ function login() {
             });
         }
     }
+
+
+function member(a) {
+    let member = $(a).val();
+    console.log(member)
+
+    $.ajax({
+        type: "GET",
+        url: "/userData/"+member,
+        data: {},
+        success: function (response) {
+            alert(response["msg"])
+            console.log(response['result'])
+        }
+    });
+
+}
+    

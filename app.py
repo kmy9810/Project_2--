@@ -28,7 +28,14 @@ def create_user():
     else:
         doc = {
             'id' : id_receive,
-            'pw' : hashed_pw
+            'pw' : hashed_pw,
+            'name' : '김미영',
+            'intro': '안녕하세요',
+            'hobby': '핑핑이 밥주기',
+            'info_1': '',
+            'info_2': '',
+            'info_3': '',
+            'info_4': '',
         }
         db.Users.insert_one(doc)
     return jsonify({ 'result': 'success', 'msg': '가입 완료!'})
@@ -55,6 +62,15 @@ def show_comment(a):
     all_comments = list(db.commentbox.find({'id':user},{'_id':False}))[::-1]
     
     return jsonify({'result':all_comments})
+
+
+@app.route('/userData/<member>', methods=["GET"])
+def show_member(member):
+    user = member
+    contents = list(db.Users.find({'name':user},{'_id':False}))[::-1]
+    
+    return jsonify({'result':contents, 'msg': '연결완료'})
+
 
 # @app.route('/login', methods=["POST"])
 # def login():
