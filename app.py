@@ -30,11 +30,9 @@ def save_comment(a):
     return jsonify({ 'result': 'success', 'msg': '저장완료'})
 
 #멤버카드 댓글 불러오기
-@app.route('/comment/<a>', methods=["GET"])
-def show_comment(a):
-    user = a
-    all_comments = list(db.commentbox.find({'id':user},{'_id':False}))[::-1]
-    
+@app.route('/comment', methods=["GET"])
+def show_comment():
+    all_comments = list(db.commentbox.find({},{'_id':False}))[::-1]
     return jsonify({'result':all_comments})
 
 
@@ -62,7 +60,6 @@ def submit():
         'reply': reply_receive
     }
     db.replys.insert_one(doc)
-
     return jsonify({'result': 'success', 'msg': '저장완료'})
 
 
@@ -76,11 +73,14 @@ def detail_get(category):
     return jsonify({'detail': detail_list})
 
 
+@app.route('/<name>')
+def member(name):
+    return render_template('member.html')
 
-# 박지홍
-# @app.route('/detail')  # 메인페이지
-# def detail():
-#     return render_template('insertTest.html')
+
+@app.route('/detail')  # 메인페이지
+def detail():
+    return render_template('insertTest.html')
 
 
 @app.route('/getlist')
@@ -91,39 +91,36 @@ def getlist():
     return namelist
 
 
-# @app.route("/create", methods=['POST'])
-# def create():
-#     name = request.form['name_give']
-#     img = request.form['img_give']
-#     comment = request.form['comment_give']
-#     hobby = request.form['hobby_give']
-#     info_1 = request.form['info_1_give']
-#     info_2 = request.form['info_2_give']
-#     info_3 = request.form['info_3_give']
-#     info_4 = request.form['info_4_give']
-#     doc = {
-#         'name': name,
-#         'img': img,
-#         'comment': comment,
-#         'hobby': hobby,
-#         'info_1': info_1,
-#         'info_2': info_2,
-#         'info_3': info_3,
-#         'info_4': info_4
-#     }
-#     namelist = list(db.Users.find({'name': name}, {'_id': False}))
-#     if not len(namelist):
-#         db.Users.insert_one(doc)
+@app.route("/create", methods=['POST'])
+def create():
+    name = request.form['name_give']
+    img = request.form['img_give']
+    hobby = request.form['hobby_give']
+    info_1 = request.form['info_1_give']
+    info_2 = request.form['info_2_give']
+    info_3 = request.form['info_3_give']
+    info_4 = request.form['info_4_give']
+    doc = {
+        'name': name,
+        'img': img,
+        'hobby': hobby,
+        'info_1': info_1,
+        'info_2': info_2,
+        'info_3': info_3,
+        'info_4': info_4
+    }
+    namelist = list(db.Users.find({'name': name}, {'_id': False}))
+    if not len(namelist):
+        db.Users.insert_one(doc)
 
-#     else:
-#         db.Users.update_one({'name': name}, {"$set": doc})
-#     return jsonify({'result': 'success', 'msg': '연결 완료!'})
+    else:
+        db.Users.update_one({'name': name}, {"$set": doc})
+    return jsonify({'result': 'success', 'msg': '연결 완료!'})
 
 
 @app.route("/file_upload", methods=['POST'])
 def file_upload():
     if request.method == 'POST':
-
         f = request.files['file']
         print("files? : ", request.files)
         f.save('./static/img/' + secure_filename(f.filename))

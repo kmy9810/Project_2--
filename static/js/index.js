@@ -17,10 +17,6 @@ function submit() {
 
 var state = [0,0,0] // 각 입력 박스들의 열림/닫힘 상태
 
-$(document).ready(function () {
-    hide_box();
-    show_comment()
-});
 
 function save_comment() {
         let name = $('#name').val()
@@ -32,7 +28,7 @@ function save_comment() {
         }
         $.ajax({
             type: "POST",
-            url: "/comment/"+a,
+            url: "/comment",
             data: {name_give: name,
                     comment_give: comment,
                     },
@@ -70,7 +66,7 @@ function show_comment() {
     let a = $('#me').text()
     $.ajax({
         type: "GET",
-        url: "/comment/"+a,
+        url: "/comment",
         data: {},
         success: function (response) {
             

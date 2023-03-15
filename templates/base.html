@@ -19,8 +19,8 @@
         <link href="{{ url_for('static', filename='css/index.css')}}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/member.css')}}" rel="stylesheet">
         <script src="{{ url_for('static',filename='js/park.js') }}"></script>
-        
-
+        <link href='https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2'>
+        <link href='https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2'>
 
         <title>에너자이조 팀 소개</title>
 
@@ -33,7 +33,7 @@
 <body>
     {% include "nav.html" %}
     {% block contents %}{% endblock %}
-</div>
+    </div>
 <!-- nav.html container 딛이주기-->
 </body>
 

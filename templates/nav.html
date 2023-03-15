@@ -7,16 +7,30 @@
     <div class="left_bar">
         <div class="category">
                 <button onclick="location.href='/'">팀소개</button>
-                <button value="김미영">김미영</button>
-                <button value="박지홍">박지홍</button>
-                <button value="송지명">송지명</button>
-                <button value="이상민">이상민</button>
+                <button onclick="location.href='/김미영'" value="김미영">김미영</button>
+                <button onclick="location.href='/박지홍'" value="박지홍">박지홍</button>
+                <button onclick="location.href='/송지명'" value="송지명">송지명</button>
+                <button onclick="location.href='/이상민'" value="이상민">이상민</button>
         </div>
-        {% block left_image %}
-            <div class="left_image">
-                <div>사진</div>
+        <div class="sec_cal">
+            <div class="cal_nav">
+              <a href="javascript:;" class="nav-btn go-prev">prev</a>
+              <div class="year-month"></div>
+              <a href="javascript:;" class="nav-btn go-next">next</a>
             </div>
-        {% endblock %}
+            <div class="cal_wrap">
+              <div class="days">
+                <div class="day">MON</div>
+                <div class="day">TUE</div>
+                <div class="day">WED</div>
+                <div class="day">THU</div>
+                <div class="day">FRI</div>
+                <div class="day">SAT</div>
+                <div class="day">SUN</div>
+              </div>
+              <div class="dates"></div>
+            </div>
+        </div>
     </div>
     <div class="right_bar">
         <div class="contents">

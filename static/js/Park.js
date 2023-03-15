@@ -6,10 +6,10 @@
 */
 const img_path = "static/img/"
 function postData() {
+    
     tmp = window.document.querySelector("#file").files[0]
     img = tmp.name
-    name1 = window.document.getElementById("name").value
-    comment = window.document.getElementById("comment").value
+    name_1 = window.document.getElementById("name_1").value
     hobby = window.document.getElementById("hobby").value
     info_1 = window.document.getElementById("info_1").value
     info_2 = window.document.getElementById("info_2").value
@@ -20,9 +20,8 @@ function postData() {
             type: 'POST',
             url: '/create',
             data: {
-                'name_give': name1,
+                'name_give': name_1,
                 'img_give': img,
-                'comment_give': comment,
                 'hobby_give': hobby,
                 'info_1_give': info_1,
                 'info_2_give': info_2,
@@ -44,6 +43,7 @@ function postData() {
 
 function fileUpload() {
   tmp = window.document.querySelector("#file").files[0]
+  console.log(tmp)
   let formData = new FormData()
   formData.append('file', tmp)
   $.ajax({
@@ -119,14 +119,55 @@ function selfClose() {
 }
 
 
-function setData(data) {
-  window.document.getElementById("name").value = data[0].name,
-  window.document.getElementById("img_path").src = img_path+data[0].img,
-  console.log("check : ", window.document.getElementById("img_path").src),
-  window.document.getElementById("comment").value = data[0].comment,
-  window.document.getElementById("hobby").value = data[0].hobby,
-  window.document.getElementById("info_1").value = data[0].info_1,
-  window.document.getElementById("info_2").value = data[0].info_2,
-  window.document.getElementById("info_3").value = data[0].info_3,
+function setData(data, setname) {
+  window.document.getElementById("name_1").value = setname
+  if (data[0].img) {
+    console.log("TEST")
+    window.document.getElementById("img_path").src = img_path + data[0].img
+  }
+  window.document.getElementById("hobby").value = data[0].hobby
+  window.document.getElementById("info_1").value = data[0].info_1
+  window.document.getElementById("info_2").value = data[0].info_2
+  window.document.getElementById("info_3").value = data[0].info_3
   window.document.getElementById("info_4").value = data[0].info_4
+}
+
+function datauppand(data) {
+  if (data[0]) {
+    _name = data[0].name
+    _img = img_path + data[0].img
+    _hobby = data[0].hobby
+    _info_1 = data[0].info_1
+    _info_2 = data[0].info_2
+    _info_3 = data[0].info_3
+    _info_4 = data[0].info_4
+    let temp_html = `
+  <h2 id="me">${_name}</h2>
+  <div id="testData">
+      <label>이미지 테스트</label>
+      <img src="${_img}" id="img_path" />
+  </div>
+  <div>
+      <label>취미 테스트</label>
+      <div id="hobby">${_hobby}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_1">${_info_1}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_2">${_info_2}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_3">${_info_3}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_4">${_info_4}</div>
+  <div>
+  `
+    return temp_html
+  }
 }

@@ -1,4 +1,10 @@
-
+/* 버튼 */
+@font-face {
+    font-family: 'KorailRoundGothicBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
 
 .main_title {
     width: 100%;
@@ -20,25 +26,6 @@
     max-height: 250px;
 }
 
-.login {
-    display: inline-block;
-    margin: 20px;
-    width: 400px;
-    height: 100px;
-    text-align: center;
-    text-size-adjust: auto;
-    padding-top: 40px;
-
-    background-color: antiquewhite;
-}
-
-.login button {
-    display: inline-block;
-    justify-content: center;
-    width: 200px;
-    height: 50px;
-    margin-top: 5px;
-}
 
 .category{
     display: inline-block;
@@ -46,16 +33,14 @@
     justify-content: center;
     max-width: 1200px;
     color: white;
-    background-color: coral;
+    background-color: rgb(90, 112, 168);
     margin: 20px;
     width: 400px;
     height: 350px;
     border-radius: 10px;
-    padding-top: 40px;
+    padding-top: 35px;
     text-align: center;
     text-size-adjust: auto;
-
-    
 
 }
 
@@ -64,17 +49,29 @@
     justify-content: center;
     width: 200px;
     height: 50px;
-    margin: 5px auto 5px auto;
-    
+    margin: 2px auto 5px auto;
+    border-radius: 10px;
+
+    background: #f2f1f1;
+
+    font-size: 25px;
+    font-family: 'KorailRoundGothicBold';
+    color: rgba(19, 19, 19, 0.856);
+
+}
+
+.category button:hover {
+    box-shadow: 2px 2px 1px 0px rgba(72, 72, 72, 0.35);            
+    border: 2px solid rgba(72, 72, 72, 0.35);
+    outline-style: 2px solid white; 
+    color: rgba(60, 60, 60, 0.35);
+    font-size: 25px;
 }
 
 .left_image {
     margin: 20px auto 0px auto;
     width: 400px;
     height: 400px;
-
-
-    background-color: antiquewhite;
 }
 
 .container {
@@ -109,39 +106,9 @@
 
     grid-area: main;
 
-    background-color: cadetblue;
+    background-color: rgb(223, 223, 223);
 }
 
-
-/* 모달 */
-.Modal {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.4);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-}
-
-.ModalContent {
-    background-color: #fff;
-    width: 600px;
-    height: 400px;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 30px;
-    box-shadow: 0 0 15px black;
-    margin-left: 0;
-}
-
-.ModalContent legend {
-    text-align: center;
-    border-bottom: 1px dashed black;
-}
 
 /* fr */
 /* .container {
@@ -157,22 +124,119 @@ grid-row: 1;
 
 } */
 
-.modal_login {
-    display: inline-block;
-    width: 400px;
-    height: 300px;
+
+
+/* section calendar */
+
+.sec_cal {
+    width: 360px;
+    margin: 0 auto;
+    font-family: "NotoSansR";
 }
 
-.modal_button {
+.sec_cal .cal_nav {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 78px;
 }
 
-.modal_button button {
-    margin: 20px auto 10px 10px;
+.sec_cal .cal_nav .year-month {
+    width: 300px;
+    text-align: center;
+    line-height: 1;
 }
 
+.sec_cal .cal_nav .nav {
+    display: flex;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
 
+.sec_cal .cal_nav .go-prev,
+.sec_cal .cal_nav .go-next {
+    display: block;
+    width: 50px;
+    height: 78px;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_cal .cal_nav .go-prev::before,
+.sec_cal .cal_nav .go-next::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #000;
+    border-width: 3px 3px 0 0;
+    transition: border 0.1s;
+}
+
+.sec_cal .cal_nav .go-prev:hover::before,
+.sec_cal .cal_nav .go-next:hover::before {
+    border-color: #ed2a61;
+}
+
+.sec_cal .cal_nav .go-prev::before {
+    transform: rotate(-135deg);
+}
+
+.sec_cal .cal_nav .go-next::before {
+    transform: rotate(45deg);
+}
+
+.sec_cal .cal_wrap {
+    padding-top: 40px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.sec_cal .cal_wrap .days {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sec_cal .cal_wrap::after {
+    top: 368px;
+}
+
+.sec_cal .cal_wrap .day {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 7);
+    text-align: left;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    border-radius:5px
+}
+
+.current.today {
+    background: rgb(234, 236, 254);
+}
+
+.sec_cal .cal_wrap .dates {
+    display: flex;
+    flex-flow: wrap;
+    height: 290px;
+}
+
+.sec_cal .cal_wrap .day:nth-child(7n -1) {
+    color: #3c6ffa;
+}
+
+.sec_cal .cal_wrap .day:nth-child(7n) {
+    color: #ed2a61;
+}
+
+.sec_cal .cal_wrap .day.disable {
+    color: #ddd;
+}

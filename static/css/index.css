@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 .contents {
     height: 90%;
 }
@@ -8,12 +17,21 @@
 }
 
 .image {
+    /* display: inline-block; */
     width: 300px;
     height: 350px;
     border-radius: 70%;
     overflow: hidden;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 20px 45px;
     float: left;
+}
+
+
+
+.test2 {
+    display: inline-block;
+    width: 500px;
+    margin-left: 55px;
 }
 
 .Ener {
@@ -23,21 +41,34 @@
 }
 
 .teamname {
-    width: 400px;
+    float: right;
+    width: 500px;
     height: 50px;
-    margin: 50px 0 0 500px;
+    /* margin: 50px 0 0 500px; */
+    margin-bottom: 30px;
     white-space: nowrap;
     background: whitesmoke;
     text-align: center
 }
 
+.teamname h1 {
+    margin-top: 6px;
+    font-family: 'Tenada';
+}
+
 .teaminfo {
-    width: 400px;
+    float: right;
+    width: 500px;
     height: 250px;
-    margin: 50px 0 0 500px;
+    /* margin: 50px 0 0 500px; */
     white-space: nowrap;
     background: whitesmoke;
     text-align: center
+}
+
+.teaminfo h4 {
+    font-family: 'Tenada';
+    margin-top: 10px;
 }
 
 
