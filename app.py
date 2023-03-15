@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from flask import Flask, render_template, request, jsonify, app, session, redirect, url_for, escape
 from werkzeug.utils import secure_filename
 import bcrypt as bc # 암호화 패키지
-client = MongoClient("mongodb+srv://sparta:test@cluster0.280f8z1.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient('mongodb+srv://sparta:test@cluster0.o2mnh48.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbsparta
 
 app = Flask(__name__)
@@ -128,6 +128,7 @@ def getlist():
     val = request.values
     cmp = val.get('name')
     namelist = list(db.Users.find({'name': cmp}, {'_id': False}))
+    print("TEST!! : ", namelist)
     return namelist
 
 

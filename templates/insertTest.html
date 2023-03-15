@@ -11,7 +11,7 @@
         testId에 이페이지가 열리전에 가지고있는 name 값을 받아와서 전달해주면 
         해당 데이터가 있으면 수정데이터로 없으면 생성데이터로 판단.
     */
-    let testId = '가미'
+    let testId = '테스트'
   window.onload = function () {
     let data = getIdData(testId)
     if(data == 0){
@@ -29,7 +29,7 @@
         <button onclick="getIdData('1');">Get Data 테스트</button>
     </div>
         <div class="contaier-sm">
-            <label for="name" class="form-label">이름</label>
+            <label for="name_1" class="form-label">이름</label>
             <input type="text" class="form-control" id="name" placeholder="이름"><br>
             <label for="img" class="form-label">사진</label>
             <input type = "file" name = "file" id="file" onchange="test1()"/>

@@ -79,11 +79,13 @@ function getIdData(_name) {
         success: function (response) {
           console.log("[Response Value] : ", response)
           result = response
+          
         },
         error: function (xtr, status, error) {
             alert(xtr + ":" + status + ":" + error);
         }
     });
+  console.log("[Result Value] : ", result)
   return result
 }
 
@@ -120,7 +122,8 @@ function selfClose() {
 
 
 function setData(data) {
-  window.document.getElementById("name").value = data[0].name,
+  if(window.document.getElementById("name_1"))
+    window.document.getElementById("name_1").value = data[0].name,
   window.document.getElementById("img_path").src = img_path+data[0].img,
   console.log("check : ", window.document.getElementById("img_path").src),
   window.document.getElementById("comment").value = data[0].comment,
@@ -129,4 +132,49 @@ function setData(data) {
   window.document.getElementById("info_2").value = data[0].info_2,
   window.document.getElementById("info_3").value = data[0].info_3,
   window.document.getElementById("info_4").value = data[0].info_4
+}
+
+
+function datauppand(data) {
+  console.log("DATA test : ", data[0].name)
+  _name = data[0].name
+  _img = img_path + data[0].img
+  _comment = data[0].comment
+  _hobby = data[0].hobby
+  _info_1 = data[0].info_1
+  _info_2 =  data[0].info_2
+  _info_3 = data[0].info_3
+  _info_4 = data[0].info_4
+  let temp_html = `
+  <h2 id="me">${_name}</h2>
+  <div id="testData">
+      <label>이미지 테스트</label>
+      <img src="${_img}" id="img_path" />
+  </div>
+  <div>
+      <label>코멘트 테스트</label>
+      <div id="comment">${_comment}</div>
+  </div>
+  <div>
+      <label>취미 테스트</label>
+      <div id="hobby">${_hobby}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_1">${_info_1}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_2">${_info_2}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_3">${_info_3}</div>
+  </div>
+  <div>
+      <label>TMI 테스트</label>
+      <div id="info_4">${_info_4}</div>
+  <div>
+  `
+  return temp_html
 }

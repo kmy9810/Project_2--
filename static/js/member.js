@@ -1,9 +1,8 @@
-var state = [0,0,0] // 각 입력 박스들의 열림/닫힘 상태
 
-$(document).ready(function () {
-    hide_box();
-    show_comment()
-});
+
+var state = [0, 0, 0] // 각 입력 박스들의 열림/닫힘 상태
+
+
 
 function save_comment() {
         let name = $('#name').val()
@@ -75,9 +74,6 @@ function show_comment() {
                                     <h2>${comment}</h2><br>
                                     <h5 style="text-align:right;">${name}(${strdate})</h5>
                                     `
-                
-
-
                 $('#all_comments').append(temp_html)
                 
             }
