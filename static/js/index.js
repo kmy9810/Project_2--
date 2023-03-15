@@ -21,7 +21,6 @@ var state = [0,0,0] // 각 입력 박스들의 열림/닫힘 상태
 function save_comment() {
         let name = $('#name').val()
         let comment = $('#comment').val()
-        let a = $('#me').text()
         if (comment.trim() =='' || name.trim()==''){
             alert("내용과 작성자이름을 입력해주세요")
             return ;
@@ -63,7 +62,6 @@ function hide_box(){
 
 
 function show_comment() {
-    let a = $('#me').text()
     $.ajax({
         type: "GET",
         url: "/comment",
@@ -85,7 +83,7 @@ function show_comment() {
 
                 let temp_html = `
                                     <div style="margin-bottom:60px; margin-top:30px; list-style:none;">
-                                    <h2>${comment}</h2><br>
+                                    <h2 style="margin-top:50px;">${comment}</h2><br>
                                     <h5 style="text-align:right;">${name}(${strdate})</h5>
                                     `
                 

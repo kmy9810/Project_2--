@@ -8,7 +8,7 @@
 
 
 .contents {
-    height: 90%;
+    height: 50%;
 }
 
 .comment {
@@ -73,5 +73,24 @@
 
 
 
+.comment_box {
+    overflow: auto;
 
+    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    
+    width: 400px;
+    height: 370px;
+
+    border: solid;
+}
+
+.my_comment {
+    margin-top: 30px;
+}
+
+.my_comment button {
+    float: right;
+    margin-top: 10px;
+}
 

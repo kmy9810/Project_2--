@@ -31,25 +31,10 @@
                 <h4>
                     팀원설명
                 </h4>
+                <h5>안녕!</h5>
             </div>
-
-            <div class="comment">
-                <input
-                    class="comment_name"
-                    id="x"
-                    type="text"
-                    placeholder="이름"
-                    style="width: 100px;">
-                <input
-                    class="comment_text"
-                    id="reply"
-                    type="text"
-                    placeholder="댓글 달기"
-                    style="width: 320px;">
-                <button onclick="submit()" type="button">등록</button>
-            </div>
-
-            <button onclick="open_box()">댓글열기</button>
+        </div>
+        <button onclick="open_box()">댓글열기</button>
             <div class="comment_box" id="comment_box">
                 <div class="my_comment">
                     <input class="form-control" id="name" type="text" placeholder="닉네임">
@@ -61,11 +46,27 @@
                 <div id="all_comments"></div>
             </div>
 
-        </div>
     </div>
     <div>
         <tbody id="comments"></tbody>
     </div>
 
 </div>
+
 {% endblock %}
+
+<!-- <div class="comment">
+    <input
+        class="comment_name"
+        id="x"
+        type="text"
+        placeholder="이름"
+        style="width: 100px;">
+    <input
+        class="comment_text"
+        id="reply"
+        type="text"
+        placeholder="댓글 달기"
+        style="width: 320px;">
+    <button onclick="submit()" type="button">등록</button>
+</div>//-->

@@ -6,33 +6,39 @@
 */
 const img_path = "static/img/"
 function postData() {
-    
-    tmp = window.document.querySelector("#file").files[0]
+  let formData = new FormData()
+  tmp_1 = window.document.querySelector("#file").file
+  if (tmp_1 != undefined) {
     img = tmp.name
-    name_1 = window.document.getElementById("name_1").value
-    hobby = window.document.getElementById("hobby").value
-    info_1 = window.document.getElementById("info_1").value
-    info_2 = window.document.getElementById("info_2").value
-    info_3 = window.document.getElementById("info_3").value
-    info_4 = window.document.getElementById("info_4").value
+    formData.append('img_give', img)
+  }
+
+  name_1 = window.document.getElementById("name_1").value
+  formData.append('name_give', name_1)
+  hobby = window.document.getElementById("hobby").value
+  formData.append('hobby_give', hobby)
+  info_1 = window.document.getElementById("info_1").value
+  formData.append('info_1_give', info_1)
+  info_2 = window.document.getElementById("info_2").value
+  formData.append('info_2_give', info_2)
+  info_3 = window.document.getElementById("info_3").value
+  formData.append('info_3_give', info_3)
+  info_4 = window.document.getElementById("info_4").value
+  formData.append('info_4_give', info_4)
         $
         .ajax({
             type: 'POST',
             url: '/create',
-            data: {
-                'name_give': name_1,
-                'img_give': img,
-                'hobby_give': hobby,
-                'info_1_give': info_1,
-                'info_2_give': info_2,
-                'info_3_give': info_3,
-                'info_4_give': info_4
-            },
+            data: formData,
+            processData: false,
+            contentType:false,
             success: function (response) {
               if (response["result"] == 'success') {
                 alert(response["msg"])
-                fileUpload()
+                if (tmp_1 != undefined)
+                  fileUpload()
                 opener.parent.location.reload()
+                selfClose()
               }
             },
             error: function (xtr, status, error) {
@@ -43,7 +49,6 @@ function postData() {
 
 function fileUpload() {
   tmp = window.document.querySelector("#file").files[0]
-  console.log(tmp)
   let formData = new FormData()
   formData.append('file', tmp)
   $.ajax({
@@ -72,12 +77,10 @@ function fileUpload() {
 */
 function getIdData(_name) {
   let result
-  console.log(_name)
     $.ajax({
         type: 'GET', url: '/getlist', async: false, //동기 / 비동기.
         data: { 'name': _name },
         success: function (response) {
-          console.log("[Response Value] : ", response)
           result = response
         },
         error: function (xtr, status, error) {
@@ -122,7 +125,6 @@ function selfClose() {
 function setData(data, setname) {
   window.document.getElementById("name_1").value = setname
   if (data[0].img) {
-    console.log("TEST")
     window.document.getElementById("img_path").src = img_path + data[0].img
   }
   window.document.getElementById("hobby").value = data[0].hobby

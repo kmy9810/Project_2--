@@ -13,14 +13,12 @@ def home():
 
 
 #멤버카드 댓글 저장
-@app.route('/comment/<a>', methods=["POST"])
-def save_comment(a):
-    user = a
+@app.route('/comment/', methods=["POST"])
+def save_comment():
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
     
     doc = {
-        'id' : user,
         'name' : name_receive,
         'comment' : comment_receive,
         'date' : datetime.datetime.now(),
@@ -94,7 +92,12 @@ def getlist():
 @app.route("/create", methods=['POST'])
 def create():
     name = request.form['name_give']
-    img = request.form['img_give']
+    print(request.form.keys)
+    img = 0
+    try:
+        img = request.form['img_give']
+    except:
+        img = None
     hobby = request.form['hobby_give']
     info_1 = request.form['info_1_give']
     info_2 = request.form['info_2_give']
@@ -112,7 +115,6 @@ def create():
     namelist = list(db.Users.find({'name': name}, {'_id': False}))
     if not len(namelist):
         db.Users.insert_one(doc)
-
     else:
         db.Users.update_one({'name': name}, {"$set": doc})
     return jsonify({'result': 'success', 'msg': '연결 완료!'})
