@@ -96,6 +96,10 @@ def show_member(member):
 #     return render_template('base.html') #세션 보내버리기
 
 
+@app.route('/member')
+def member():
+    return render_template('member.html')
+
 # 박지홍
 @app.route('/detail')  # 메인페이지
 def detail():

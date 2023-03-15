@@ -55,6 +55,7 @@ function member(a) {
         success: function (response) {
             alert(response["msg"])
             console.log(response['result'])
+            window.location.href = 'member'
         }
     });
 
