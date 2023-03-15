@@ -45,6 +45,7 @@ function login() {
 
 
 function member(a) {
+    $('#test').empty()
     let member = $(a).val();
     console.log(member)
 
@@ -53,11 +54,13 @@ function member(a) {
         url: "/userData/"+member,
         data: {},
         success: function (response) {
+
             alert(response["msg"])
             console.log(response['result'])
-            window.location.href = 'member'
         }
     });
 
 }
-    
+
+
+
