@@ -25,7 +25,7 @@
 
 
 body {
-        background-color: #355d98b0;
+        background-color: #809dc8;
 
 }
 
@@ -33,12 +33,27 @@ body {
     display: grid;
     grid-template-areas:
 		"header header header header header header header"
-		"a main main main main main main"
-		"a main main main main main main"
+		"a a a main main main card"
+		"a a a main main main card"
 		"footer footer footer footer footer footer footer";
-
     max-width: 100%;
 
+}
+
+.card_box {
+    grid-area: card;
+}
+
+
+.card_box_mam {
+    margin-top: 30px;
+    position: relative;
+}
+
+.card_box{
+    position: absolute;
+    bottom: 500px;
+    left: 500px;
 }
 
 .main_title {
@@ -142,6 +157,7 @@ body {
 
     display: flex;
     flex-direction: row;
+    
 }
 .content_img {
     width: 1200px;

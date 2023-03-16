@@ -14,60 +14,201 @@
 
 {% block contents %}
     <div class="right_bar">
-            <div class="index_image">
-                <img
-                    class="Ener"
-                    src="https://pbs.twimg.com/profile_images/1081070799358849024/4g67jhaR_400x400.jpg">
-            </div>
-            <div class="team">
-                <h1>
-                    에너자이조
-                </h1>
-            </div>
+        <div class="index_image">
+            <img
+                class="Ener"
+                src="https://pbs.twimg.com/profile_images/1081070799358849024/4g67jhaR_400x400.jpg">
+        </div>
+        <div class="team">
+            <h1>
+                에너자이조
+            </h1>
+        </div>
 
-            <div class="info">
-                <h4>
-                    팀원설명
-                </h4>
-                <h5>안녕!</h5>
+        <div class="info">
+            <h4>
+                팀원설명
+            </h4>
+            <h5>안녕!</h5>
+        </div>
+        <div>
+            <button class="comment_open" onclick="open_box()">댓글열기</button>
+        </div>
+        <div class="comment_box" id="comment_box">
+            <div class="my_comment">
+                <input class="form-control" id="name" type="text" placeholder="닉네임">
             </div>
-            <div>
-                <button class="comment_open" onclick="open_box()">댓글열기</button>
+            <div class="my_comment">
+                <input class="form-control" id="comment" type="text" placeholder="댓글 작성">
+                <button onclick="save_comment()" type="button">저장</button>
             </div>
-                <div class="comment_box" id="comment_box">
-                    <div class="my_comment">
-                        <input class="form-control" id="name" type="text" placeholder="닉네임">
+            <div id="all_comments"></div>
+        </div>
+    </div>
+    <div class="card_box_mom" style="margin-top:100px;">
+        <div class="code_box">
+            <div class="card">
+                <div class="card-back">
+                    <div class="line-numbers">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
                     </div>
-                    <div class="my_comment">
-                        <input class="form-control" id="comment" type="text" placeholder="댓글 작성">
-                        <button onclick="save_comment()" type="button">저장</button>
-                    </div>
-                    <div id="all_comments"></div>
+                    <code>
+                        <span class="variable">def
+                        </span><span class="function">create()
+                        </span><span class="operator">:
+                            <br>
+                            doc
+                        </span><span>{</span>
+                        <div class="indent">
+                            <span class="property">hobby</span><span class="operator">:
+                            </span>
+                            <span class="string">
+                                request.form['hobby_give']</span><span>,</span>
+                        </div>
+                        <div class="indent">
+                            <span class="property">info_1</span><span class="operator">:
+                            </span><span class="string">request.form['info_1_give']</span><span>,</span>
+                        </div>
+                        <div class="indent">
+                            <span class="property">info_2</span><span class="operator">:
+                            </span><span class="string">request.form['info_2_give']</span><span>,</span>
+                        </div>
+                        <div class="indent">
+                            <span class="property">info_3</span><span class="operator">:
+                            </span><span class="string">request.form['info_3_give']</span><span>,</span>
+                        </div>
+                        <div class="indent">
+                            <span class="property">info_4</span><span class="operator">:
+                            </span><span class="string">request.form['info_4_give']</span><br>
+                            <span>}</span>
+                        </div>
+                    </code>
                 </div>
-            
-                
+                <div class="card-front">
+                    <div class="line-numbers">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                    </div>
+                    <code>
+                        <span class="variable">이것은</span><span>.</span><span class="method">코드입니다</span><span>(</span><span class="string">'직접 작성한'</span><span>,
+                        </span><span class="function">() =>
+                        </span><span>{
+                        </span>
+                        <div class="indent">
+                            <span class="variable">우리의</span><span>.</span><span class="property">DB 목록입니다.
+                            </span><span>=
+                            </span><span class="boolean">true</span><span>;</span>
+                        </div>
+                        <span>});</span>
+                    </code>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-back" style="height: 300px;">
+                    <div class="line-numbers">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                    </div>
+                    <code>
+                        <span class="variable">def
+                        </span><span class="function">comment_save()
+                        </span><span class="operator">:
+                            <br>
+                            doc
+                        </span><span>{</span>
+                        <div class="indent">
+                            <span class="property">name</span><span class="operator">:
+                            </span>
+                            <span class="string">
+                                request.form['name_give']</span><span>,</span>
+                        </div>
+                        <div class="indent">
+                            <span class="property">comment</span><span class="operator">:
+                            </span><span class="string">request.form['comment_give']</span><br>
+                            <span>}</span><br><br>
+                        </div>
 
+                        <span class="variable">def
+                        </span><span class="function">comment_show()
+                        </span><span class="operator">:
+                            <br>
+                            all
+                        </span><span>{</span>
+
+                        <div class="indent">
+                            <span class="property">all_comments</span><span class="operator">=
+                            </span>
+                            <span class="string">
+                                list(db.commentbox.find({},<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {'_id':False}))[::-1]</span>
+                        </div><br>
+                        <div class="indent"></span><span class="function">return jsonify({'result':all})
+                        </span>
+                        <span class="string"></span><br>
+                    </div>
+
+                </code>
+            </div>
+            <div class="card-front">
+                <div class="line-numbers">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <code>
+                    <span class="variable">이것은</span><span>.</span><span class="method">코드입니다</span><span>(</span><span class="string">'직접 작성한'</span><span>,
+                    </span><span class="function">() =>
+                    </span><span>{
+                    </span>
+                    <div class="indent">
+                        <span class="variable">우리의</span><span>.</span><span class="property">댓글 api입니다.
+                        </span><span>=
+                        </span><span class="boolean">true</span><span>;</span>
+                    </div>
+                    <span>});</span>
+                </code>
+            </div>
+        </div>
     </div>
-    <div>
-        <tbody id="comments"></tbody>
-    </div>
+</div>
+<div>
+    <tbody id="comments"></tbody>
+</div>
 
 </div>
 
 {% endblock %}
 
-<!-- <div class="comment">
-    <input
-        class="comment_name"
-        id="x"
-        type="text"
-        placeholder="이름"
-        style="width: 100px;">
-    <input
-        class="comment_text"
-        id="reply"
-        type="text"
-        placeholder="댓글 달기"
-        style="width: 320px;">
-    <button onclick="submit()" type="button">등록</button>
-</div>//-->
+<!-- <div class="comment"> <input class="comment_name" id="x" type="text"
+placeholder="이름" style="width: 100px;"> <input class="comment_text" id="reply"
+type="text" placeholder="댓글 달기" style="width: 320px;"> <button
+onclick="submit()" type="button">등록</button> </div>//-->
