@@ -149,6 +149,9 @@ function datauppand(data) {
             <div class="extra">
                 <button class="buttons">❤</button>
                 <button class="buttons">💌</button>
+                <div class="detail_btn">
+                    <button class="info_btn" onclick="openPage('/detail', 'test', 500, 600)" type="button">상세정보</button>
+                </div>
             </div>
             <div class="good">
                 좋아요 500개
@@ -163,16 +166,124 @@ function datauppand(data) {
             </div>
 
             <div id="text_Box" class="teaminfo">
-                <h4>
-                    ${_info_1}
-                </h4>
+                <h5 class="info_h">hobby : ${_hobby}</h4>
+                <h5 class="info_h">TMI.1 : ${_info_1}</h4>
+                <h5 class="info_h">TMI.2 : ${_info_2}</h4>
+                <h5 class="info_h">TMI.3 : ${_info_3}</h4>
+                <h5 class="info_h">TMI.4 : ${_info_4}</h4>
             </div>
         </div>
     <div>
         <tbody id="comments"></tbody>
     </div>
 </div>
+<div class="folder_mom">
+<div class="folder">
+                    <div class="tabs">
+                        <button class="tab active" onclick="openTab(event, 'tab-1')">
+                            <div>
+                                <span>Work stuff</span></div>
+                        </button>
+                        <button class="tab" onclick="openTab(event, 'tab-2')">
+                            <div>
+                                <span>Food</span></div>
+                        </button>
+                        <button class="tab" onclick="openTab(event, 'tab-3')">
+                            <div>
+                                <span>Baking</span></div>
+                        </button>
+                        <button class="tab" onclick="openTab(event, 'tab-4')">
+                            <div>
+                                <span>Cat</span></div>
+                        </button>
+                    </div>
+                    <div class="content">
+                        <div class="content__inner" id="tab-1">
+                            <div class="page">
+                                <p>Productize. Optics accountable talk. Thought shower. High performance
+                                    keywords market-facing drink from the firehose, or you better eat a reality
+                                    sandwich before you walk back in that boardroom, but accountable talk knowledge
+                                    process outsourcing.
+                                </p>
+                                <p>What's our go to market strategy? cross functional teams enable out of the
+                                    box brainstorming nor zeitgeist viral engagement. Deep dive. Organic growth
+                                    quick sync, feed the algorithm.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__inner" id="tab-2">
+                            <div class="page">
+                                <p>I love cheese, especially the big cheese gouda. Monterey jack red leicester
+                                    roquefort cheese and wine fromage frais smelly cheese melted cheese dolcelatte.
+                                    Fromage smelly cheese manchego paneer cheese and wine danish fontina macaroni
+                                    cheese red leicester.
+                                </p>
+                                <p>Stilton fondue queso emmental when the cheese comes out everybody's happy
+                                    croque monsieur queso paneer. Say cheese pecorino swiss boursin halloumi cottage
+                                    cheese taleggio boursin.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__inner" id="tab-3">
+                            <div class="page">
+                                <p>Cupcake ipsum dolor sit amet jujubes tart. Tiramisu icing gingerbread halvah
+                                    cake. Marzipan cake soufflé cookie brownie ice cream cupcake. Dragée croissant
+                                    bonbon ice cream oat cake jelly cookie. Wafer candy dessert jelly jelly-o.
+                                </p>
+                                <p>Oat cake donut powder pastry wafer brownie cupcake caramels bear claw. Bonbon
+                                    caramels oat cake cake shortbread. Cake cheesecake candy icing bear claw
+                                    marshmallow icing jelly. Halvah biscuit pudding danish cookie bonbon gummies.</p>
+                            </div>
+                        </div>
+                        <div class="content__inner" id="tab-4">
+                            <div class="page">
+                                <p>Miaow then turn around and show you my bum flee in terror at cucumber
+                                    discovered on floor. Terrorize the hundred-and-twenty-pound rottweiler and steal
+                                    his bed, not sorry sleep on dog bed, force dog to sleep on floor and grab pompom
+                                    in mouth and put in water dish cats are fats i like to pets them they like to
+                                    meow back present belly, scratch hand when stroked.
+                                </p>
+                                <p>Bleghbleghvomit my furball really tie the room together love
+                                    asdflkjaertvlkjasntvkjn (sits on keyboard) but bawl under human beds.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+
   `
     return temp_html
   }
+}
+
+function openTab(evt, tab) {
+  var i,
+      tabcontent,
+      tablinks;
+  tabcontent = document.getElementsByClassName("content__inner");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tab");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i]
+          .className
+          .replace(" active", "");
+  }
+  document
+      .getElementById(tab)
+      .style
+      .display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Horizontal scroll for the tabs on mousewheel. If tabs are longer than the
+// content section, there's a scroll bar but it's hidden to retain the design.
+if (window.innerWidth > 800) {
+  const scrollContainer = document.querySelector(".tabs");
+
+  scrollContainer.addEventListener("wheel", (evt) => {
+      evt.preventDefault();
+      scrollContainer.scrollLeft += evt.deltaY;
+  });
 }

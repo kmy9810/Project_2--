@@ -6,6 +6,24 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'TAEBAEKmilkyway';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.info_h{
+    white-space : normal;
+    font-family: 'GowunDodum-Regular';
+}
+
+
 body {
         background-color: #355d98b0;
 
@@ -25,7 +43,7 @@ body {
 
 .main_title {
     width: 100%;
-    height: 250px;
+    height: 300px;
     max-width: 100%;            
 
     display: grid;
@@ -36,11 +54,15 @@ body {
     justify-content: center;
 
     margin-top: 10px;
+    position: relative;
+
 }
 
 .main_title img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 
-    max-height: 250px;
 }
 
 
@@ -119,9 +141,6 @@ body {
 
 
     display: flex;
-    flex-direction: row;
-}
-.info_btn{
     flex-direction: row;
 }
 .content_img {

@@ -101,4 +101,4 @@ def file_upload():
     else:
         return jsonify({'result': 'fail', 'msg': '저장 실패!'})
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=8000, debug=True)
+    app.run('0.0.0.0', port=8800, debug=True)
