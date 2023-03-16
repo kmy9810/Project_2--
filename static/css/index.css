@@ -22,8 +22,10 @@
     margin: 0px 0px 20px 45px;
     float: left;
     position: absolute;
-    left: 30px;
-    top: 100px;
+
+    left: 2px;
+    bottom: 908px;
+
 }
 
 .team {
@@ -103,13 +105,14 @@
     padding: 10px 10px 10px 10px;
     margin-top: 10px;
     
-    width: 90%x;
-    height: 370px;
+    width: 1123px;
+    height: 372px;
 
     border: solid;
 
     position: absolute;
-    bottom: 70px;
+    bottom: 71px;
+    left: -680px;
 }
 
 .my_comment {
@@ -271,17 +274,6 @@
 /*인스타 페이지*/
 
 
-.comment_box {
-    position: relative;
-
-    overflow: auto;
-    background-color: white;
-
-    padding: 10px 10px 10px 10px;
-
-    width: 400px;
-    height: 370px;
-}
 
 .my_comment {
     margin-top: 30px;
@@ -324,6 +316,21 @@ hr {
     bottom: 350px;
     left: 60%;
 }
+
+
+
+.heart_btn {
+float: right;
+width: 70px;
+height: 30px;
+border-radius: 10px;
+background: #5a5fa9;
+}
+
+#heart {
+    margin-left: 70px;
+}
+
 
 
 /* 파일 */

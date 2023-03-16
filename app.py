@@ -9,13 +9,11 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 #멤버카드 댓글 저장
-@app.route('/comment/<a>', methods=["POST"])
-def save_comment(a):
-    user = a
+@app.route('/comment', methods=["POST"])
+def save_comment():
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
     doc = {
-        'id' : user,
         'name' : name_receive,
         'comment' : comment_receive,
         'date' : datetime.datetime.now(),

@@ -17,6 +17,29 @@ function submit() {
 
 var state = [0,0,0] // 각 입력 박스들의 열림/닫힘 상태
 
+function save_comment() {
+    let name = $('#name').val()
+    let comment = $('#comment').val()
+    if (comment.trim() =='' || name.trim()==''){
+        alert("내용과 작성자이름을 입력해주세요")
+        return ;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/comment",
+        data: {name_give: name,
+                comment_give: comment,
+                },
+        success: function (response) {
+            if (response["msg"]=='저장완료'){
+                alert(response["msg"])
+                window.location.reload()
+            } else {
+                alert(response["msg"])
+            }
+        }
+    });
+}
 
 function show_comment() {
     $.ajax({
@@ -36,8 +59,8 @@ function show_comment() {
                 let strdate = `${year}.${month}.${day}`
                 let temp_html2 = `
                                     <div style="margin-bottom:60px; margin-top:30px; list-style:none;">
-                                    <h5 style=" font-family: 'TAEBAEKmilkyway'; margin-top:50px;">${comment}</h5><br>
-                                    <div style=" font-family: 'TAEBAEKmilkyway'; text-align:right; font-size: 6px">${name}(${strdate})</div>
+                                    <h2 style=" font-family: 'TAEBAEKmilkyway'; margin-top:50px;">⚡${comment}</h2><br>
+                                    <div style=" font-family: 'TAEBAEKmilkyway'; text-align:right; font-size: 30px">${name}(${strdate})</div>
                                     </div>
                                     `
                 $('#all_comments').append(temp_html2)

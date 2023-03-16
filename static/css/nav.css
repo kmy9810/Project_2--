@@ -45,16 +45,7 @@ body {
 }
 
 
-.card_box_mam {
-    margin-top: 30px;
-    position: relative;
-}
 
-.card_box{
-    position: absolute;
-    bottom: 500px;
-    left: 500px;
-}
 
 .main_title {
     width: 100%;

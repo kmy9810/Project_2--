@@ -167,11 +167,11 @@ function datauppand(data) {
             </div>
 
             <div id="text_Box" class="teaminfo" style="text-align: left;">
-                <h5 class="info_h" style="font-size:30px">${_hobby}</h4>
-                <h5 class="info_h" style="font-size:30px">TMI.1 : ${_info_1}</h4>
-                <h5 class="info_h" style="font-size:30px">TMI.2 : ${_info_2}</h4>
-                <h5 class="info_h" style="font-size:30px">TMI.3 : ${_info_3}</h4>
-                <h5 class="info_h" style="font-size:30px">TMI.4 : ${_info_4}</h4>
+                <h5 class="info_h" style="font-size:30px">⚡${_hobby}</h4>
+                <h5 class="info_h" style="font-size:30px">⚡TMI.1 : ${_info_1}</h4>
+                <h5 class="info_h" style="font-size:30px">⚡TMI.2 : ${_info_2}</h4>
+                <h5 class="info_h" style="font-size:30px">⚡TMI.3 : ${_info_3}</h4>
+                <h5 class="info_h" style="font-size:30px">⚡TMI.4 : ${_info_4}</h4>
             </div>
         </div>
     <div>
