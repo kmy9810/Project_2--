@@ -85,6 +85,7 @@ function show_comment() {
                                     <div style="margin-bottom:60px; margin-top:30px; list-style:none;">
                                     <h2 style="margin-top:50px;">${comment}</h2><br>
                                     <h5 style="text-align:right;">${name}(${strdate})</h5>
+                                    </div>
                                     `
                 
 

@@ -132,31 +132,46 @@ function datauppand(data) {
     _info_3 = data[0].info_3
     _info_4 = data[0].info_4
     let temp_html = `
-  <h2 id="me">${_name}</h2>
-  <div id="testData">
-      <label>이미지 테스트</label>
-      <img src="${_img}" id="img_path" />
-  </div>
-  <div>
-      <label>취미 테스트</label>
-      <div id="hobby">${_hobby}</div>
-  </div>
-  <div>
-      <label>TMI 테스트</label>
-      <div id="info_1">${_info_1}</div>
-  </div>
-  <div>
-      <label>TMI 테스트</label>
-      <div id="info_2">${_info_2}</div>
-  </div>
-  <div>
-      <label>TMI 테스트</label>
-      <div id="info_3">${_info_3}</div>
-  </div>
-  <div>
-      <label>TMI 테스트</label>
-      <div id="info_4">${_info_4}</div>
-  <div>
+    <div class="right_bar">
+    <div class="contents">
+        <div class="instar_bg">
+            <div class="profile">
+                <img class="image"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtFizDLXYxlzFDLGKFQKZRwdT3DLua58vr56JpQDJ98FzQEU4etUVLlE7gkmCAGaIZyPA&usqp=CAU">
+                <div id="instar_name" class="instar_name">
+                    ${_name}
+                </div>
+            </div>
+            <div class="img_area">
+                <img class="upload_img"
+                     src="${_img}">
+            </div><hr>
+            <div class="extra">
+                <button class="buttons">❤</button>
+                <button class="buttons">💌</button>
+            </div>
+            <div class="good">
+                좋아요 500개
+            </div>
+        </div>
+    </div>
+    <div class="detail_page">
+            <div class="teamname">
+                <h1>
+                    ${_name}
+                </h1>
+            </div>
+
+            <div id="text_Box" class="teaminfo">
+                <h4>
+                    ${_info_1}
+                </h4>
+            </div>
+        </div>
+    <div>
+        <tbody id="comments"></tbody>
+    </div>
+</div>
   `
     return temp_html
   }

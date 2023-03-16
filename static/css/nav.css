@@ -108,7 +108,7 @@ body {
 
     border-radius: 10px;
 
-    width: 950px;
+    width: 1200px;
     height: 98%;
 
     /* flex-direction: column;
@@ -117,7 +117,16 @@ body {
 
     grid-area: main;
 
-    background-color: rgba(234, 230, 230, 0.715);
+
+    display: flex;
+    flex-direction: row;
+}
+.info_btn{
+    flex-direction: row;
+}
+.content_img {
+    width: 1200px;
+    height: 70%;
 }
 
 

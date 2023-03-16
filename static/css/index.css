@@ -8,15 +8,14 @@
 
 
 .contents {
-    height: 50%;
+    height: 70%;
 }
 
 .comment {
     margin-top: 20px;
-
 }
 
-.image {
+.index_image {
     /* display: inline-block; */
     width: 300px;
     height: 350px;
@@ -24,6 +23,27 @@
     overflow: hidden;
     margin: 0px 0px 20px 45px;
     float: left;
+}
+
+.team {
+    float: right;
+    width: 650px;
+    height: 55px;
+    /* margin: 50px 0 0 500px; */
+    margin-bottom: 50px;
+    white-space: nowrap;
+    background: whitesmoke;
+    text-align: center
+}
+
+.info {
+    float: right;
+    width: 640px;
+    height: 300px;
+    /* margin: 50px 0 0 500px; */
+    white-space: nowrap;
+    background: whitesmoke;
+    text-align: center
 }
 
 
@@ -42,10 +62,10 @@
 
 .teamname {
     float: right;
-    width: 500px;
-    height: 50px;
+    width: 650px;
+    height: 55px;
     /* margin: 50px 0 0 500px; */
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     white-space: nowrap;
     background: whitesmoke;
     text-align: center
@@ -58,8 +78,8 @@
 
 .teaminfo {
     float: right;
-    width: 500px;
-    height: 250px;
+    width: 640px;
+    height: 300px;
     /* margin: 50px 0 0 500px; */
     white-space: nowrap;
     background: whitesmoke;
@@ -79,7 +99,7 @@
     padding: 10px 10px 10px 10px;
     margin-top: 10px;
     
-    width: 400px;
+    width: 90%x;
     height: 370px;
 
     border: solid;
@@ -94,3 +114,190 @@
     margin-top: 10px;
 }
 
+.detail_page{
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 60px;
+
+}
+
+
+
+
+/*instar*/
+.instar_bg {
+    background-color: transparent;
+    position: relative;
+
+    width: 400px;
+    height: 400px;
+    /* margin-left: 20px;
+    margin-top: 20px; */
+
+}
+.profile{
+    position: relative;
+    width: 400px;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    border-bottom: 1px solid rgb(196, 192, 192);
+}
+
+.image {
+    position: absolute;
+    left: -36px;
+    top : 0px;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: 0px 0px 20px 45px;
+    float: left;
+}
+
+.instar_name{
+    position: absolute;
+    left: 65px;
+    top: 2px;
+}
+.img_area{
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    border: 2px solid;
+
+    margin-left: 55px;
+    margin-bottom: 10px;
+
+}
+.upload_img{
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
+    padding: 8px 10px 10px 8px;
+
+    border-style: hidden;
+    border: 0px;
+    border-width: 0px;
+
+    display: inline-block;
+    content: "";
+
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.extra{
+    position: relative;
+
+    left: 20px;
+
+    width: 400px;
+    height: 35px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.buttons{
+    margin-left: 5px;
+    left: 15px;
+}
+.good{
+    position: relative;
+
+    top:5px;
+    left: 20px;
+
+    width: 400px;
+    height: 20px;
+}
+.text_area{
+    position: relative;
+
+    top : 20px;
+
+    height: 30px;
+
+    background-color: white;
+
+}
+.name_textarea{
+    position: absolute;
+
+    left: 20px;
+}
+.under_textarea{
+    position: absolute;
+
+    top: 30px;
+    left: 20px;
+}
+.comment_btn{
+    position: absolute;
+
+    top: 100px;
+    left: 20px;
+}
+
+.comment_area {
+    position: relative;
+
+    width: 400px;
+}
+
+/*인스타 페이지*/
+
+
+.comment_box {
+    position: relative;
+
+    overflow: auto;
+    background-color: white;
+
+    padding: 10px 10px 10px 10px;
+
+    width: 400px;
+    height: 370px;
+}
+
+.my_comment {
+    margin-top: 30px;
+}
+
+.my_comment button {
+    float: right;
+    margin-top: 10px;
+}
+
+
+.comment {
+    margin-top: 20px;
+
+}
+
+.info_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 680px;
+    left: 800px;
+}
+
+hr {
+    margin: 0px;
+    margin-left: 5px;
+}
