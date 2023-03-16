@@ -112,10 +112,6 @@ function selfClose() {
 }
 function setData(data, setname) {
   window.document.getElementById("name_1").value = setname
-  if (data[0].img) {
-    window.document.getElementById("img_path").src = img_path + data[0].img
-    console.log(img_path + data[0].img)
-  }
   window.document.getElementById("hobby").value = data[0].hobby
   window.document.getElementById("info_1").value = data[0].info_1
   window.document.getElementById("info_2").value = data[0].info_2
@@ -165,12 +161,12 @@ function datauppand(data) {
                 </h1>
             </div>
 
-            <div id="text_Box" class="teaminfo">
-                <h5 class="info_h">hobby : ${_hobby}</h4>
-                <h5 class="info_h">TMI.1 : ${_info_1}</h4>
-                <h5 class="info_h">TMI.2 : ${_info_2}</h4>
-                <h5 class="info_h">TMI.3 : ${_info_3}</h4>
-                <h5 class="info_h">TMI.4 : ${_info_4}</h4>
+            <div id="text_Box" class="teaminfo" style="text-align: left;">
+                <h5 class="info_h" style="font-size:30px">hobby : ${_hobby}</h4><br>
+                <h5 class="info_h" style="font-size:30px">TMI.1 : ${_info_1}</h4><br>
+                <h5 class="info_h" style="font-size:30px">TMI.2 : ${_info_2}</h4><br>
+                <h5 class="info_h" style="font-size:30px">TMI.3 : ${_info_3}</h4><br>
+                <h5 class="info_h" style="font-size:30px">TMI.4 : ${_info_4}</h4>
             </div>
         </div>
     <div>
