@@ -157,6 +157,8 @@ body {
 
     display: flex;
     flex-direction: row;
+
+    position: relative;
     
 }
 .content_img {

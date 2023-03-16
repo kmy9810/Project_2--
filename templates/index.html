@@ -15,35 +15,42 @@
 {% block contents %}
     <div class="right_bar">
         <div class="index_image">
-            <img
-                class="Ener"
-                src="https://pbs.twimg.com/profile_images/1081070799358849024/4g67jhaR_400x400.jpg">
+            <img class="Ener" src="{{ url_for('static', filename='img/Energizoe.png') }}">
         </div>
-        <div class="team">
-            <h1>
-                에너자이조
-            </h1>
-        </div>
-
         <div class="info">
-            <h4>
-                팀원설명
+            <h4 style="font-family: 'GowunDodum-Regular'; font-weight: bold">
+                동물로 힐링하는 에너자이조<p></p>
+                우리집 귀여운 동물들 구경하고가세요<p></p>
+
+                23-03-13 html 뼈대 잡기<p></p>
+
+                23-03-14 댓글+버튼 구현<p></p>
+
+                23-03-15 코드 복구<p></p>
+
+                23-03-16 css 수정
             </h4>
-            <h5>안녕!</h5>
         </div>
-        <div>
-            <button class="comment_open" onclick="open_box()">댓글열기</button>
-        </div>
-        <div class="comment_box" id="comment_box">
-            <div class="my_comment">
-                <input class="form-control" id="name" type="text" placeholder="닉네임">
+        <div class="button">
+            <button onclick="heart()">하트!</button>
+            <div id="heart"></div>
+            <div>
+                <button class="comment_open" onclick="open_box()">댓글열기</button>
             </div>
-            <div class="my_comment">
-                <input class="form-control" id="comment" type="text" placeholder="댓글 작성">
-                <button onclick="save_comment()" type="button">저장</button>
+            <div class="comment_box" id="comment_box">
+                <div class="my_comment">
+                    <input class="form-control" id="name" type="text" placeholder="닉네임">
+                </div>
+                <div class="my_comment">
+                    <input class="form-control" id="comment" type="text" placeholder="댓글 작성">
+                    <button onclick="save_comment()" type="button">저장</button>
+                </div>
+                <div id="all_comments"></div>
             </div>
-            <div id="all_comments"></div>
         </div>
+    </div>
+    <div>
+        <tbody id="comments"></tbody>
     </div>
     <div class="card_box_mom" style="margin-top:100px;">
         <div class="code_box">
@@ -169,7 +176,6 @@
                         </span>
                         <span class="string"></span><br>
                     </div>
-
                 </code>
             </div>
             <div class="card-front">
@@ -199,10 +205,6 @@
             </div>
         </div>
     </div>
-</div>
-<div>
-    <tbody id="comments"></tbody>
-</div>
 
 </div>
 

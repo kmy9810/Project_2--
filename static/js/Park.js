@@ -1,11 +1,12 @@
 const img_path = "static/img/"
 function postData() {
   let formData = new FormData()
-  tmp_1 = window.document.querySelector("#file").files
-  if (tmp_1 != undefined) {
-    img = tmp_1[0].name
-    formData.append('img_give', img)
-  }
+    tmp_1 = window.document.querySelector("#file").files
+    if (tmp_1[0] != undefined) {
+        console.log('a')
+        img = tmp_1[0].name
+        formData.append('img_give', img)
+    }
   name_1 = window.document.getElementById("name_1").value
   formData.append('name_give', name_1)
   hobby = window.document.getElementById("hobby").value
@@ -23,14 +24,17 @@ function postData() {
             type: 'POST',
             url: '/create',
             data: formData,
+            async:false,
             processData: false,
             contentType:false,
             success: function (response) {
               if (response["result"] == 'success') {
                 alert(response["msg"])
-                if (tmp_1 != undefined)
-                  fileUpload()
+                if (tmp_1[0] != undefined) {
+                    console.log('b')
+                  fileUpload()}
                 opener.parent.location.reload()
+                selfClose()
               }
             },
             error: function (xtr, status, error) {
@@ -47,7 +51,7 @@ function fileUpload() {
             type: 'POST',
             url: '/file_upload',
             data: formData,
-            async:true,
+            async:false,
             processData: false,
             contentType:false,
             enctype:"multipart/form-data",
@@ -112,6 +116,7 @@ function selfClose() {
 }
 function setData(data, setname) {
   window.document.getElementById("name_1").value = setname
+
   window.document.getElementById("hobby").value = data[0].hobby
   window.document.getElementById("info_1").value = data[0].info_1
   window.document.getElementById("info_2").value = data[0].info_2
@@ -162,10 +167,10 @@ function datauppand(data) {
             </div>
 
             <div id="text_Box" class="teaminfo" style="text-align: left;">
-                <h5 class="info_h" style="font-size:30px">hobby : ${_hobby}</h4><br>
-                <h5 class="info_h" style="font-size:30px">TMI.1 : ${_info_1}</h4><br>
-                <h5 class="info_h" style="font-size:30px">TMI.2 : ${_info_2}</h4><br>
-                <h5 class="info_h" style="font-size:30px">TMI.3 : ${_info_3}</h4><br>
+                <h5 class="info_h" style="font-size:30px">${_hobby}</h4>
+                <h5 class="info_h" style="font-size:30px">TMI.1 : ${_info_1}</h4>
+                <h5 class="info_h" style="font-size:30px">TMI.2 : ${_info_2}</h4>
+                <h5 class="info_h" style="font-size:30px">TMI.3 : ${_info_3}</h4>
                 <h5 class="info_h" style="font-size:30px">TMI.4 : ${_info_4}</h4>
             </div>
         </div>
@@ -175,72 +180,57 @@ function datauppand(data) {
 </div>
 <div class="folder_mom">
 <div class="folder">
-                    <div class="tabs">
-                        <button class="tab active" onclick="openTab(event, 'tab-1')">
+                    <div class="tabs" >
+                        <button class="tab active" onclick="openTab(event, 'tab-1')"style="font-family: 'Tenada';">
                             <div>
-                                <span>Work stuff</span></div>
+                                <span>1일차</span></div>
                         </button>
-                        <button class="tab" onclick="openTab(event, 'tab-2')">
+                        <button class="tab" onclick="openTab(event, 'tab-2')"style="font-family: 'Tenada';">
                             <div>
-                                <span>Food</span></div>
+                                <span>2일차</span></div>
                         </button>
-                        <button class="tab" onclick="openTab(event, 'tab-3')">
+                        <button class="tab" onclick="openTab(event, 'tab-3')"style="font-family: 'Tenada';">
                             <div>
-                                <span>Baking</span></div>
+                                <span>3일...차</span></div>
                         </button>
-                        <button class="tab" onclick="openTab(event, 'tab-4')">
+                        <button class="tab" onclick="openTab(event, 'tab-4')"style="font-family: 'Tenada';">
                             <div>
-                                <span>Cat</span></div>
+                                <span>4..ㅇ..ㅣㄹ..차..</span></div>
                         </button>
                     </div>
                     <div class="content">
                         <div class="content__inner" id="tab-1">
-                            <div class="page">
-                                <p>Productize. Optics accountable talk. Thought shower. High performance
-                                    keywords market-facing drink from the firehose, or you better eat a reality
-                                    sandwich before you walk back in that boardroom, but accountable talk knowledge
-                                    process outsourcing.
-                                </p>
-                                <p>What's our go to market strategy? cross functional teams enable out of the
-                                    box brainstorming nor zeitgeist viral engagement. Deep dive. Organic growth
-                                    quick sync, feed the algorithm.
+                            <div class="page" style="font-size:30px; font-family: 'Tenada';">
+                                <p>묘옹 : 우왕~ 팀플이닷^ㅇ^ 재밌겠다~~<br>
+                                    미니미니 : 우와~어색해..^ㅇ^<br>
+                                    홍홍 : 내가..뭘 했더라..?<br>
+                                    G묘옹 : 여긴..어디..?난..ㄴㄱ?
                                 </p>
                             </div>
                         </div>
                         <div class="content__inner" id="tab-2">
-                            <div class="page">
-                                <p>I love cheese, especially the big cheese gouda. Monterey jack red leicester
-                                    roquefort cheese and wine fromage frais smelly cheese melted cheese dolcelatte.
-                                    Fromage smelly cheese manchego paneer cheese and wine danish fontina macaroni
-                                    cheese red leicester.
-                                </p>
-                                <p>Stilton fondue queso emmental when the cheese comes out everybody's happy
-                                    croque monsieur queso paneer. Say cheese pecorino swiss boursin halloumi cottage
-                                    cheese taleggio boursin.
+                            <div class="page" style="font-size:30px; font-family: 'Tenada';">
+                                <p>묘옹 : 우..와...재..재밌나..? 그래 재밌어..재밌다구..화이팅...<br>
+                                    미니미니 : (기억상실)<br>
+                                    홍홍 : 왜..왜 안되냐고..해달란 거 다 해줬잖아..왜그래 나한테..<br>
+                                    G묘옹 : 여긴..어디..?난..ㄴㄱ?
                                 </p>
                             </div>
                         </div>
                         <div class="content__inner" id="tab-3">
-                            <div class="page">
-                                <p>Cupcake ipsum dolor sit amet jujubes tart. Tiramisu icing gingerbread halvah
-                                    cake. Marzipan cake soufflé cookie brownie ice cream cupcake. Dragée croissant
-                                    bonbon ice cream oat cake jelly cookie. Wafer candy dessert jelly jelly-o.
+                            <div class="page" style="font-size:30px; font-family: 'Tenada';">
+                                <p>묘옹 : 이건 아니야.. 무언가 잘못되었어.. 뭐지..?<br>
+                                    미니미니 : 집이지만..집에 가고싶어..;_;<br>
+                                    홍홍 : (코드 복구중)(코드 복구중)(코드 복구중)(코드 복구중)(코드 복구중)(코드 복구중)(코드 복구중)<br>
+                                    G묘옹 : 여긴..어디..?난..ㄴㄱ?
                                 </p>
-                                <p>Oat cake donut powder pastry wafer brownie cupcake caramels bear claw. Bonbon
-                                    caramels oat cake cake shortbread. Cake cheesecake candy icing bear claw
-                                    marshmallow icing jelly. Halvah biscuit pudding danish cookie bonbon gummies.</p>
                             </div>
                         </div>
-                        <div class="content__inner" id="tab-4">
+                        <div class="content__inner" id="tab-4" style="font-size:30px; font-family: 'Tenada';">
                             <div class="page">
-                                <p>Miaow then turn around and show you my bum flee in terror at cucumber
-                                    discovered on floor. Terrorize the hundred-and-twenty-pound rottweiler and steal
-                                    his bed, not sorry sleep on dog bed, force dog to sleep on floor and grab pompom
-                                    in mouth and put in water dish cats are fats i like to pets them they like to
-                                    meow back present belly, scratch hand when stroked.
-                                </p>
-                                <p>Bleghbleghvomit my furball really tie the room together love
-                                    asdflkjaertvlkjasntvkjn (sits on keyboard) but bawl under human beds.</p>
+                            <p>살려주세요..살려주세요..살..려..마..감..지킬 수..있지..?..우리..화이..팅..끝나면...맥..주..
+                            </p>
+                                
                             </div>
                         </div>
                     </div>

@@ -33,6 +33,22 @@ def show_comment():
 #     contents = list(db.Users.find({'name':user},{'_id':False}))[::-1]
 #     return jsonify({'result':contents, 'msg': '연결완료'})
 #지명
+#좋아요
+@app.route("/heart", methods=["PUSH"])
+def save_heart():
+    num_list = db.heartDB.find_one({'id':'2'}, {'_id': False})
+    num = num_list['heart']+1
+    db.heartDB.update_one({'id':'2'}, {'$set': {'heart': num}})
+    print(num)
+
+    return jsonify({'msg': '⚡감사합니다⚡'})
+
+
+@app.route("/heart", methods=["GET"])
+def show_heart():
+    total_heart = db.heartDB.find_one({'id':'2'}, {'_id': False})
+    print(total_heart)
+    return jsonify({'result': total_heart})
 #팀소개 댓글 저장
 @app.route('/reply', methods=["POST"])
 def submit():
@@ -67,10 +83,11 @@ def getlist():
 @app.route("/create", methods=['POST'])
 def create():
     name = request.form['name_give']
+    namelist = list(db.Users.find({'name': name}, {'_id': False}))
     try:
         img = request.form['img_give']
     except:
-        img = None
+        img = namelist[0]['img']
     hobby = request.form['hobby_give']
     info_1 = request.form['info_1_give']
     info_2 = request.form['info_2_give']
@@ -85,19 +102,18 @@ def create():
         'info_3': info_3,
         'info_4': info_4
     }
-    namelist = list(db.Users.find({'name': name}, {'_id': False}))
     if not len(namelist):
         db.Users.insert_one(doc)
     else:
         db.Users.update_one({'name': name}, {"$set": doc})
-    return jsonify({'result': 'success', 'msg': '연결 완료!'})
+    return jsonify({'result': 'success', 'msg': '저장 완료!'})
 @app.route("/file_upload", methods=['POST'])
 def file_upload():
     if request.method == 'POST':
         f = request.files['file']
         print("files? : ", request.files)
         f.save('./static/img/' + secure_filename(f.filename))
-        return jsonify({'result': 'success', 'msg': '저장 완료!'})
+        return jsonify({'result': 'success', 'msg': '저장완료!'})
     else:
         return jsonify({'result': 'fail', 'msg': '저장 실패!'})
 if __name__ == '__main__':
