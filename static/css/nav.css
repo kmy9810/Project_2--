@@ -6,6 +6,23 @@
     font-style: normal;
 }
 
+body {
+        background-color: #355d98b0;
+
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+		"header header header header header header header"
+		"a main main main main main main"
+		"a main main main main main main"
+		"footer footer footer footer footer footer footer";
+
+    max-width: 100%;
+
+}
+
 .main_title {
     width: 100%;
     height: 250px;
@@ -29,14 +46,12 @@
 
 .category{
     display: inline-block;
-    flex-wrap: wrap;
-    justify-content: center;
     max-width: 1200px;
     color: white;
-    background-color: rgb(90, 112, 168);
+    background-color: rgba(11, 38, 106, 0.464);
     margin: 20px;
     width: 400px;
-    height: 350px;
+    height: 370px;
     border-radius: 10px;
     padding-top: 35px;
     text-align: center;
@@ -45,27 +60,31 @@
 }
 
 .category button {
+    vertical-align: middle;
     display: inline-block;
     justify-content: center;
     width: 200px;
     height: 50px;
-    margin: 2px auto 5px auto;
+    margin: 3px auto 5px auto;
     border-radius: 10px;
 
-    background: #f2f1f1;
+    background: #f4f4f4;
 
     font-size: 25px;
     font-family: 'KorailRoundGothicBold';
     color: rgba(19, 19, 19, 0.856);
 
+    
+    color: #183b70;
+    background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    transition: background 300ms ease-in-out;
+
 }
 
 .category button:hover {
-    box-shadow: 2px 2px 1px 0px rgba(72, 72, 72, 0.35);            
-    border: 2px solid rgba(72, 72, 72, 0.35);
-    outline-style: 2px solid white; 
-    color: rgba(60, 60, 60, 0.35);
-    font-size: 25px;
+    background-position: 0;
 }
 
 .left_image {
@@ -74,17 +93,7 @@
     height: 400px;
 }
 
-.container {
-    display: grid;
-    grid-template-areas:
-		"header header header header header header header"
-		"a main main main main main main"
-		"a main main main main main main"
-		"footer footer footer footer footer footer footer";
 
-    max-width: 100%;
-
-}
 
 .left_bar {
     grid-area: a;
@@ -97,6 +106,8 @@
     margin-top: 20px;
     margin-left: 20px;
 
+    border-radius: 10px;
+
     width: 950px;
     height: 98%;
 
@@ -106,7 +117,7 @@
 
     grid-area: main;
 
-    background-color: rgb(223, 223, 223);
+    background-color: rgba(234, 230, 230, 0.715);
 }
 
 
@@ -129,9 +140,11 @@ grid-row: 1;
 /* section calendar */
 
 .sec_cal {
-    width: 360px;
+    width: 400px;
     margin: 0 auto;
     font-family: "NotoSansR";
+    background-color: #f4f4f4;
+    border-radius: 10px;
 }
 
 .sec_cal .cal_nav {
@@ -220,7 +233,7 @@ grid-row: 1;
 }
 
 .current.today {
-    background: rgb(234, 236, 254);
+    background: rgba(253, 192, 47, 0.584);
 }
 
 .sec_cal .cal_wrap .dates {

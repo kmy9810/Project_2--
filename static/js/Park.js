@@ -1,18 +1,11 @@
-/*
-  함수명 : postData
-  인자값 : x
-  반환값 : x
-  사용처 : 윈도우 페이지에서 값을 받아와 데이터베이스에 데이터를 넣는 용도.
-*/
 const img_path = "static/img/"
 function postData() {
   let formData = new FormData()
-  tmp_1 = window.document.querySelector("#file").file
+  tmp_1 = window.document.querySelector("#file").files
   if (tmp_1 != undefined) {
-    img = tmp.name
+    img = tmp_1[0].name
     formData.append('img_give', img)
   }
-
   name_1 = window.document.getElementById("name_1").value
   formData.append('name_give', name_1)
   hobby = window.document.getElementById("hobby").value
@@ -38,7 +31,6 @@ function postData() {
                 if (tmp_1 != undefined)
                   fileUpload()
                 opener.parent.location.reload()
-                selfClose()
               }
             },
             error: function (xtr, status, error) {
@@ -46,9 +38,9 @@ function postData() {
             }
         });
 }
-
 function fileUpload() {
   tmp = window.document.querySelector("#file").files[0]
+  console.log(tmp)
   let formData = new FormData()
   formData.append('file', tmp)
   $.ajax({
@@ -77,10 +69,12 @@ function fileUpload() {
 */
 function getIdData(_name) {
   let result
+  console.log(_name)
     $.ajax({
         type: 'GET', url: '/getlist', async: false, //동기 / 비동기.
         data: { 'name': _name },
         success: function (response) {
+          console.log("[Response Value] : ", response)
           result = response
         },
         error: function (xtr, status, error) {
@@ -89,7 +83,6 @@ function getIdData(_name) {
     });
   return result
 }
-
 /*
   함수명 : openPage
   인자값 : path : 경로이름,
@@ -102,7 +95,6 @@ function getIdData(_name) {
 function openPage(path, name, x, y) {
     window.open(path, name, `width= ${x}, height=${y}`);
 }
-
 /*
   함수명 : mainReload
   인자값 : x
@@ -114,18 +106,15 @@ function mainReload() {
         .document
         .location
         .reload();
-
 }
-
 function selfClose() {
     self.close();
 }
-
-
 function setData(data, setname) {
   window.document.getElementById("name_1").value = setname
   if (data[0].img) {
     window.document.getElementById("img_path").src = img_path + data[0].img
+    console.log(img_path + data[0].img)
   }
   window.document.getElementById("hobby").value = data[0].hobby
   window.document.getElementById("info_1").value = data[0].info_1
@@ -133,7 +122,6 @@ function setData(data, setname) {
   window.document.getElementById("info_3").value = data[0].info_3
   window.document.getElementById("info_4").value = data[0].info_4
 }
-
 function datauppand(data) {
   if (data[0]) {
     _name = data[0].name
